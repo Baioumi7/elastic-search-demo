@@ -1,0 +1,20 @@
+# If we want to get information directly on Elasticsearch, we can run the following commands:
+
+#This should return some JSON with information about your Elasticsearch instance.
+curl -X GET "localhost:9200/"
+
+# show all data in kibana 
+GET weather_data/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "time": {
+        "order": "asc"
+      }
+    }
+  ],
+  "size": 10000
+}
